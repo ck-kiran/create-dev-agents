@@ -1,0 +1,54 @@
+{
+  "name": "create-dev-agents",
+  "version": "1.0.0",
+  "description": "Claude Code agents for rapid development - project scaffolding, features, commits, PRs, Jira tickets",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agents",
+    "developer-tools",
+    "automation",
+    "mcp",
+    "jira",
+    "github",
+    "commit",
+    "pull-request",
+    "scaffolding"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/create-dev-agents"
+  },
+  "homepage": "https://github.com/yourusername/create-dev-agents#readme",
+  "bugs": {
+    "url": "https://github.com/yourusername/create-dev-agents/issues"
+  },
+  "bin": {
+    "create-dev-agents": "./bin/cli.js",
+    "dev-agents": "./bin/cli.js"
+  },
+  "main": "./src/index.js",
+  "files": [
+    "bin",
+    "src",
+    "templates"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "node bin/cli.js --help",
+    "dev": "node bin/cli.js",
+    "prepublishOnly": "echo 'Ready to publish!'"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "enquirer": "^2.4.1",
+    "ora": "^7.0.1"
+  }
+}
