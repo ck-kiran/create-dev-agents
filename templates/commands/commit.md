@@ -13,17 +13,20 @@ First, check staged changes:
 - Understand the nature of changes
 
 ### 2. Determine Type
-Based on changes, identify:
-- `feat` - New feature
-- `fix` - Bug fix
-- `docs` - Documentation
-- `style` - Formatting (no code change)
-- `refactor` - Code restructuring
-- `perf` - Performance improvement
-- `test` - Tests
-- `chore` - Maintenance
-- `ci` - CI/CD changes
-- `build` - Build system
+Based on changes, identify type and use corresponding emoji prefix:
+- ✨ `feat` - New feature
+- 🐛 `fix` - Bug fix
+- 📝 `docs` - Documentation
+- 💄 `style` - Formatting (no code change)
+- ♻️ `refactor` - Code restructuring
+- ⚡ `perf` - Performance improvement
+- ✅ `test` - Tests
+- 🔧 `chore` - Maintenance
+- 👷 `ci` - CI/CD changes
+- 📦 `build` - Build system
+- 🔥 `remove` - Remove code/files
+- 🚀 `deploy` - Deployment
+- 🔒 `security` - Security fix
 
 ### 3. Identify Scope
 Determine affected area:
@@ -32,10 +35,10 @@ Determine affected area:
 - Technical area (e.g., `api`, `database`)
 
 ### 4. Generate Message
-Create commit message:
+Create commit message with emoji prefix:
 
 ```
-<type>(<scope>): <subject>
+<emoji> <type>(<scope>): <subject>
 
 <body>
 
@@ -43,6 +46,7 @@ Create commit message:
 ```
 
 **Rules:**
+- Always start with the appropriate emoji
 - Subject: imperative, lowercase, no period, max 50 chars
 - Body: wrap at 72 chars, explain what and why
 - Footer: reference issues, breaking changes
@@ -52,10 +56,10 @@ Show 2-3 commit message options:
 
 ```
 Option 1 (Concise):
-feat(auth): add Google OAuth login
+✨ feat(auth): add Google OAuth login
 
 Option 2 (Detailed):
-feat(auth): add Google OAuth login
+✨ feat(auth): add Google OAuth login
 
 Implement social authentication using Google OAuth 2.0.
 - Add GoogleSignIn button component
@@ -65,7 +69,7 @@ Implement social authentication using Google OAuth 2.0.
 Closes #123
 
 Option 3 (With Breaking Change):
-feat(auth)!: replace session auth with JWT
+✨ feat(auth)!: replace session auth with JWT
 
 BREAKING CHANGE: Session-based authentication has been
 replaced with JWT tokens. All clients must update to
@@ -94,13 +98,13 @@ For simple changes, `/commit -q` or `/commit --quick`:
 >   src/components/ui/AppButton/AppButton.types.ts
 >   src/components/ui/AppButton/index.ts
 
-Generated: feat(ui): add AppButton component with variants
+Generated: ✨ feat(ui): add AppButton component with variants
 
 # User runs /commit after fixing a bug
 > Staged files:
 >   src/hooks/useNotes.ts
 
-Generated: fix(notes): prevent crash on empty note list
+Generated: 🐛 fix(notes): prevent crash on empty note list
 
 Handles edge case where notes array is undefined
 by providing empty array fallback.
@@ -112,13 +116,15 @@ Fixes #456
 
 ### Good Examples
 ```
-feat(notes): add markdown preview toggle
-fix(auth): handle expired token refresh
-docs(readme): update installation steps
-refactor(api): extract common fetch logic
-perf(list): virtualize note list for large datasets
-test(button): add unit tests for disabled state
-chore(deps): update expo to v51
+✨ feat(notes): add markdown preview toggle
+🐛 fix(auth): handle expired token refresh
+📝 docs(readme): update installation steps
+♻️ refactor(api): extract common fetch logic
+⚡ perf(list): virtualize note list for large datasets
+✅ test(button): add unit tests for disabled state
+🔧 chore(deps): update expo to v51
+🔥 remove(legacy): delete deprecated API endpoints
+🔒 security(auth): fix XSS vulnerability in input
 ```
 
 ### Bad Examples
@@ -126,5 +132,5 @@ chore(deps): update expo to v51
 fixed stuff                    # Not descriptive
 WIP                           # Not meaningful
 Update Button.tsx             # No type, unclear change
-feat: added new awesome feature # No scope, past tense
+feat: added new awesome feature # No scope, past tense, no emoji
 ```
