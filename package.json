@@ -1,6 +1,6 @@
 {
   "name": "create-dev-agents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Claude Code agents for rapid development - project scaffolding, features, commits, PRs, Jira tickets",
   "keywords": [
     "claude",
