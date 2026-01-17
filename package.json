@@ -16,15 +16,15 @@
     "pull-request",
     "scaffolding"
   ],
-  "author": "",
+  "author": "Kiran C",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/create-dev-agents"
+    "url": "https://github.com/ck-kiran/create-dev-agents"
   },
-  "homepage": "https://github.com/yourusername/create-dev-agents#readme",
+  "homepage": "https://github.com/ck-kiran/create-dev-agents#readme",
   "bugs": {
-    "url": "https://github.com/yourusername/create-dev-agents/issues"
+    "url": "https://github.com/ck-kiran/create-dev-agents/issues"
   },
   "bin": {
     "create-dev-agents": "./bin/cli.js",

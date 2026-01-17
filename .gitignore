@@ -9,3 +9,5 @@ dist/
 # Claude Code local config (generated per-project)
 .claude/
 CLAUDE.md
+agents/
+scripts/

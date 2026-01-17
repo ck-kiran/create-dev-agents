@@ -70,7 +70,9 @@ export async function init(options = {}) {
 
     // Create directories
     spinner.start('Creating directories...');
-    const dirs = ['.claude/commands'];
+    // When installing globally, targetDir is already ~/.claude, so use 'commands' directly
+    const commandsDir = options.global ? 'commands' : '.claude/commands';
+    const dirs = [commandsDir];
     if (selections.extras.includes('agents')) dirs.push('agents');
     if (selections.extras.includes('templates')) dirs.push('templates');
     if (selections.extras.includes('scripts')) dirs.push('scripts');
@@ -85,7 +87,7 @@ export async function init(options = {}) {
     spinner.start('Installing commands...');
     for (const cmd of selections.commands) {
       const src = path.join(TEMPLATES_DIR, 'commands', `${cmd}.md`);
-      const dest = path.join(targetDir, '.claude', 'commands', `${cmd}.md`);
+      const dest = path.join(targetDir, commandsDir, `${cmd}.md`);
       if (fs.existsSync(src)) {
         fs.copyFileSync(src, dest);
       }
@@ -123,7 +125,10 @@ export async function init(options = {}) {
     if (selections.extras.includes('mcp')) {
       spinner.start('Installing MCP config...');
       const src = path.join(TEMPLATES_DIR, 'mcp-settings.json');
-      const dest = path.join(targetDir, '.claude', 'settings.json');
+      // When global, targetDir is ~/.claude, so settings.json goes directly there
+      const dest = options.global
+        ? path.join(targetDir, 'settings.json')
+        : path.join(targetDir, '.claude', 'settings.json');
       if (fs.existsSync(src) && !fs.existsSync(dest)) {
         fs.copyFileSync(src, dest);
       }
